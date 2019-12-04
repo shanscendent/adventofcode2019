@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 wires = []
 with open('Day 3/input.txt') as f:
     for path in f:
@@ -45,3 +49,5 @@ for intersection in intersections:
 
 closest_distance = min(combined_steps)
 print(closest_distance)
+t2 = time.time()
+print(t2-t1)
