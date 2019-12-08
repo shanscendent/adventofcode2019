@@ -23,10 +23,10 @@ def traverse(body, orbit_map, traversed_list):
     # print("Saving {} to {}".format(counter, body))
     if body == 'YOU':
         traversed_list_you = traversed_list_next.copy()
-        print(traversed_list_next)
+        # print(traversed_list_next)
     if body == 'SAN':
         traversed_list_san = traversed_list_next.copy()
-        print(traversed_list_next)
+        # print(traversed_list_next)
 
 traversed_list = []
 traverse('COM', orbit_map, traversed_list)
