@@ -1,10 +1,10 @@
-with open('Day 7/input.txt') as f:
+with open('Day 5/input.txt') as f:
     for intcode in f:
         original_intcode = list(map(int, intcode.strip().split(',')))
 
 intcode = original_intcode.copy()
 
-program_inputs = [0, 0]
+program_inputs = [5, 16]
 program_input_counter = 0
 p = 0
 jump = False
@@ -52,10 +52,11 @@ while True:
         if not modes:
             intcode[intcode[p]] = program_inputs[program_input_counter]
         else:
-            if modes[0] == 0:
+            if modes[0] == 0 or modes[0] == 1:
                 intcode[intcode[p]] = program_inputs[program_input_counter]
             elif modes[0] == 1:
                 intcode[p] == program_inputs[program_input_counter]
+                print("MODEMDOEMD")
         program_input_counter += 1
     elif opcode == 4:
         p += 1

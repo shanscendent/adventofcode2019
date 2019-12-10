@@ -1,5 +1,6 @@
 def computer(original_intcode, program_inputs):
     intcode = original_intcode.copy()
+    program_inputs = program_inputs.copy()
 
     program_input_counter = 0
     p = 0
@@ -18,7 +19,7 @@ def computer(original_intcode, program_inputs):
                 opcode = int(temp[-2:])
                 modes = list(map(int, list(temp[0:-2])))[::-1]
         if opcode == 99:
-            break
+            return 'HALT'
         start_p = p
         # Instruction handler #
         params = []
@@ -48,7 +49,7 @@ def computer(original_intcode, program_inputs):
             if not modes:
                 intcode[intcode[p]] = program_inputs[program_input_counter]
             else:
-                if modes[0] == 0:
+                if modes[0] == 0 or modes[0] == 1:
                     intcode[intcode[p]] = program_inputs[program_input_counter]
                 elif modes[0] == 1:
                     intcode[p] == program_inputs[program_input_counter]
@@ -140,7 +141,7 @@ with open('Day 7/input.txt') as f:
 
 # phase_sequence = [1,0,4,3,2]
 
-print(original_intcode)
+# print(original_intcode)
 
 # print(amp(original_intcode, phase_sequence))
 
@@ -151,3 +152,6 @@ for phase_sequence in permutations([0, 1, 2, 3, 4]):
     max_thruster_output = max(max_thruster_output, amp(original_intcode, list(phase_sequence)))
 
 print("Max thruster output = {}".format(max_thruster_output))
+
+
+# print(computer(original_intcode, [2, 16]))
