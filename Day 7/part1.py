@@ -19,7 +19,7 @@ def computer(original_intcode, program_inputs):
                 opcode = int(temp[-2:])
                 modes = list(map(int, list(temp[0:-2])))[::-1]
         if opcode == 99:
-            return 'HALT'
+            break
         start_p = p
         # Instruction handler #
         params = []
